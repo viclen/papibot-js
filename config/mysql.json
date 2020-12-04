@@ -1,0 +1,74 @@
+{
+  "development": {
+    "dialect": "mysql",
+    "timezone": "-03:00",
+    "logging" : true,
+    "benchmark": true,
+    "pool": {
+      "max": 10,
+      "min": 0,
+      "idle": 10000,
+      "acquire": 10000
+    },
+    "define": {
+      "freezeTableName": true,
+      "engine": "InnoDB",
+      "charset": "utf8",
+      "collate": "utf8_general_ci"
+    }
+  },
+  "staging": {
+    "dialect": "mysql",
+    "timezone": "-03:00",
+    "logging" : true,
+    "benchmark": true,
+    "pool": {
+      "max": 10,
+      "min": 0,
+      "idle": 10000,
+      "acquire": 10000
+    },
+    "define": {
+      "freezeTableName": true,
+      "engine": "InnoDB",
+      "charset": "utf8",
+      "collate": "utf8_general_ci"
+    }
+  },
+  "production": {
+    "dialect": "mysql",
+    "timezone": "-03:00",
+    "logging" : false,
+    "benchmark": false,
+    "pool": {
+      "max": 10,
+      "min": 0,
+      "idle": 10000,
+      "acquire": 10000
+    },
+    "define": {
+      "freezeTableName": true,
+      "engine": "InnoDB",
+      "charset": "utf8",
+      "collate": "utf8_general_ci"
+    }
+  },
+  "test": {
+    "dialect": "mysql",
+    "timezone": "-03:00",
+    "logging" : true,
+    "benchmark": true,
+    "pool": {
+      "max": 10,
+      "min": 0,
+      "idle": 10000,
+      "acquire": 10000
+    },
+    "define": {
+      "freezeTableName": true,
+      "engine": "InnoDB",
+      "charset": "utf8",
+      "collate": "utf8_general_ci"
+    }
+  }
+}
