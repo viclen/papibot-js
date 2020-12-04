@@ -1,0 +1,57 @@
+{
+  "name": "papibot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development nodemon --ignore tmp/,uploads/ --inspect=0.0.0.0 --ext js,mjs,json,env server.js",
+    "test": "npx cross-env NODE_ENV=test npx jest --detectOpenHandles --forceExit --coverage --watch",
+    "migrate": "NODE_ENV=development sequelize-cli db:migrate --env development",
+    "seed": "NODE_ENV=development sequelize-cli db:seed:all --env development",
+    "db-create": "NODE_ENV=development sequelize-cli db:create --env development",
+    "db-reset": "NODE_ENV=development sequelize-cli db:migrate:undo:all --env development",
+    "migrate-reset": "yarn db-reset; yarn migrate",
+    "migrate-seed": "yarn migrate-reset && yarn seed",
+    "prod-db-reset": "NODE_ENV=production sequelize-cli db:migrate:undo:all --env production",
+    "prod-seed": "NODE_ENV=production sequelize-cli db:seed:all --env production",
+    "prod-migrate": "NODE_ENV=production sequelize-cli db:migrate --env production",
+    "prod-migrate-seed": "yarn prod-db-reset && yarn prod-seed",
+    "help-model": "echo 'sequelize-cli model:generate --name User --attributes name:string,email:string,password:string'",
+    "help-seeder": "echo 'sequelize-cli seed:generate --name users'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viclen/papibot-js.git"
+  },
+  "author": "Victor Lengler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viclen/papibot-js/issues"
+  },
+  "homepage": "https://github.com/viclen/papibot-js#readme",
+  "dependencies": {
+    "aws-sdk": "^2.740.0",
+    "axios": "^0.21.0",
+    "axios-https-proxy-fix": "^0.17.1",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
+    "express": "^4.17.1",
+    "express-mysql-session": "^1.2.3",
+    "express-session": "^1.15.6",
+    "faker": "^5.1.0",
+    "helmet": "^3.21.2",
+    "http": "^0.0.1-security",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.6",
+    "sequelize": "^6.3.5",
+    "socket.io": "^3.0.3",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.6"
+  }
+}
