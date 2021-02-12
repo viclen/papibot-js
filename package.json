@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development nodemon --ignore tmp/,uploads/ --inspect=0.0.0.0 --ext js,mjs,json,env server.js",
+    "prod-start": "NODE_ENV=production nodemon --ignore tmp/,uploads/ --inspect=0.0.0.0 --ext js,mjs,json,env server.js",
     "test": "npx cross-env NODE_ENV=test npx jest --detectOpenHandles --forceExit --coverage --watch",
     "migrate": "NODE_ENV=development sequelize-cli db:migrate --env development",
     "seed": "NODE_ENV=development sequelize-cli db:seed:all --env development",
@@ -12,10 +13,11 @@
     "db-reset": "NODE_ENV=development sequelize-cli db:migrate:undo:all --env development",
     "migrate-reset": "yarn db-reset; yarn migrate",
     "migrate-seed": "yarn migrate-reset && yarn seed",
+    "prod-db-create": "NODE_ENV=production sequelize-cli db:create --env production",
     "prod-db-reset": "NODE_ENV=production sequelize-cli db:migrate:undo:all --env production",
     "prod-seed": "NODE_ENV=production sequelize-cli db:seed:all --env production",
     "prod-migrate": "NODE_ENV=production sequelize-cli db:migrate --env production",
-    "prod-migrate-seed": "yarn prod-db-reset && yarn prod-seed",
+    "prod-migrate-seed": "yarn prod-db-reset && yarn prod-migrate && yarn prod-seed",
     "help-model": "echo 'sequelize-cli model:generate --name User --attributes name:string,email:string,password:string'",
     "help-seeder": "echo 'sequelize-cli seed:generate --name users'"
   },
