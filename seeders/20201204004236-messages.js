@@ -6,14 +6,14 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const messages = [];
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
       messages.push(messageFactory());
     }
 
-    queryInterface.bulkInsert('Message', messages);
+    return queryInterface.bulkInsert('Message', messages);
   },
 
   down: async (queryInterface, Sequelize) => {
-    queryInterface.truncate('Message');
+    return queryInterface.truncate('Message');
   }
 };

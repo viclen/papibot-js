@@ -2,3 +2,5 @@ env/*.env
 test/*
 
 node_modules
+
+*.pem

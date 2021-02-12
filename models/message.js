@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Message.init({
     text: DataTypes.TEXT,
-    userId: DataTypes.INTEGER,
+    UserId: DataTypes.INTEGER,
     seen: DataTypes.BOOLEAN
   }, {
     sequelize,

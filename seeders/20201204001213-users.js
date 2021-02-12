@@ -15,10 +15,10 @@ module.exports = {
       users.push(userFactory());
     }
 
-    queryInterface.bulkInsert('User', users);
+    return queryInterface.bulkInsert('User', users);
   },
 
   down: async (queryInterface, Sequelize) => {
-    queryInterface.truncate('User');
+    return queryInterface.truncate('User');
   }
 };

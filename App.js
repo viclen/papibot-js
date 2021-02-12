@@ -5,6 +5,7 @@ const Socket = require("./middleware/Socket");
 const dotenv = require('dotenv');
 const cors = require('cors');
 const helmet = require('helmet');
+const bodyParser = require('body-parser')
 
 if (dotenv.config({
     path: `env/${process.env.NODE_ENV}.env`
@@ -30,6 +31,8 @@ class App {
         let socket = new Socket(this.server);
         // adicionar o socket como middleware
         this.app.use(socket.middleware.bind(socket));
+
+        this.app.use(bodyParser.json());
 
         // adiciona as rotas
         this.app.use(routes);
